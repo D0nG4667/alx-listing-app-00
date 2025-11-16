@@ -1,36 +1,40 @@
-import React from 'react';
-import { ButtonProps } from '@/interfaces';
+import { FC, ButtonHTMLAttributes } from 'react';
+import clsx from 'clsx';
 
-const Button: React.FC<ButtonProps> = ({
-  label,
-  onClick,
+type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
+type ButtonSize = 'sm' | 'md' | 'lg';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  label?: string;
+}
+
+const Button: FC<ButtonProps> = ({
   variant = 'primary',
-  disabled = false,
-  type = 'button',
-  ariaLabel,
+  size = 'md',
+  label,
+  children,
+  className,
+  disabled,
+  ...props
 }) => {
-  const baseStyle =
-    'px-4 py-2 rounded-lg font-semibold transition-all duration-200 focus:outline-none';
-
-  const variantStyles = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
-    danger: 'bg-red-600 text-white hover:bg-red-700',
-  } as const;
-
-  type VariantKey = keyof typeof variantStyles;
-  const variantKey: VariantKey = variant as VariantKey;
-  const variantClass = variantStyles[variantKey];
+  const classes = clsx(
+    'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed',
+    // ✅ Variants mapped to flattened tokens
+    variant === 'primary' && 'bg-primary text-primary-foreground hover:opacity-90',
+    variant === 'secondary' && 'bg-accent text-white-foreground hover:opacity-90',
+    variant === 'tertiary' && 'bg-dark text-white-foreground hover:opacity-90',
+    // ✅ Sizes
+    size === 'sm' && 'px-4 py-1.5 text-sm',
+    size === 'md' && 'px-5 py-2 text-base',
+    size === 'lg' && 'px-6 py-3 text-lg',
+    className,
+  );
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-      className={`${baseStyle} ${variantClass} ${disabled ? 'cursor-not-allowed opacity-50' : ''}`}
-      aria-label={ariaLabel} // Optional descriptive label
-    >
-      {label}
+    <button className={classes} disabled={disabled} {...props}>
+      {children || label}
     </button>
   );
 };

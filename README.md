@@ -1,168 +1,217 @@
 # ALX Listing App
 
-**ALX Listing App** — A scaffold for an Airbnb-style property listing application built with **Next.js + TypeScript + Tailwind CSS**. This repository provides a production-ready foundation: clean folder structure, reusable components, TypeScript interfaces, Tailwind setup, and asset organization so you can rapidly build listing pages and UI components.
+**ALX Listing App** — A production-grade, scalable Airbnb-style property listing platform architected with **Next.js 16**, **TypeScript**, and **Tailwind CSS v4**. Designed for semantic clarity, type safety, and expressive UI composition.
 
-## Project Goals
-
-- Scaffold a maintainable, scalable Next.js project for property listings.
-- Enforce type-safety with TypeScript and code quality with ESLint.
-- Use Tailwind CSS for fast, responsive UI composition.
-- Provide reusable components (Card, Button, CardGrid) and a clear folder layout so teams can iterate quickly.
-
-## Live Demo
-
-- Deployed on Vercel: [https://alx-listing.gabcares.xyz](https://alx-listing.gabcares.xyz/)
-
-## Tech Stack & Requirements
-
-- Node: **v24+**
-- Next.js: v13+ (Pages Router)
-- TypeScript
-- Tailwind CSS: **v4+**
-- ESLint
-- Recommended editor: VS Code with TypeScript & Tailwind plugins
-
-## Project Structure
-
-```folder
-
-alx-listing-app/
-├── components/           # Reusable React components
-│   └── common/
-│       ├── Button.tsx
-│       ├── Card.tsx
-│       └── CardGrid.tsx
-├── constants/            # App-wide constants (API URLs, UI text)
-│   └── index.ts
-├── interfaces/           # TypeScript interfaces (CardProps, ButtonProps, etc.)
-│   └── index.ts
-├── pages/                # Next.js pages (Pages Router)
-│   ├── api/
-│   │   └── hello.ts
-│   ├── _app.tsx
-│   ├── _document.tsx
-│   └── index.tsx
-├── public/               # Static assets
-│   └── assets/
-│       ├── detail-images/
-│       ├── listing-images/
-│       ├── hero-section-image.png
-│       ├── icons.svg
-│       └── logos.svg
-├── styles/               # Global styles and Tailwind imports
-│   └── globals.css
-├── .gitignore
-├── .prettierrc.json
-├── eslint.config.mjs
-├── LICENSE
-├── next-env.d.ts
-├── next.config.ts
-├── package-lock.json
-├── package.json
-├── postcss.config.mjs
-├── README.md
-├── tailwind.config.js
-└── tsconfig.json
-
-```
-
-### Directory Responsibilities
-
-- **components/** — Composable UI components like `Card`, `Button`, `CardGrid`.
-- **constants/** — Centralized constants for API URLs, default UI strings.
-- **interfaces/** — Shared TypeScript interfaces (`CardProps`, `ButtonProps`) for consistent typing.
-- **public/assets/** — Static images, SVGs, and other media. Reference in components via `/assets/...`.
-- **styles/** — Global Tailwind styles.
-
-## Getting Started — Run Locally
-
-1. **Clone the repo**
-
-```bash
-git clone https://github.com/D0nG4667/alx-listing-app.git
-cd alx-listing-app
-```
-
-2. **Install dependencies**
-
-```bash
-npm install
-# or
-yarn
-```
-
-3. **Run the development server**
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open `http://localhost:3000` in your browser.
-
-4. **Build & run production**
-
-```bash
-npm run build
-npm start
-# or
-yarn build
-yarn start
-```
-
-5. **Linting & type checking**
-
-```bash
-npm run lint
-npm run typecheck
-# or
-yarn lint
-yarn typecheck
-```
-
-## Tailwind Configuration
-
-- `tailwind.config.js`:
-
-```ts
-module.exports = {
-  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
-  theme: { extend: {} },
-  plugins: [],
-};
-```
-
-- `styles/globals.css` should only contain:
-
-```css
-@import "tailwindcss";
-
-```
-
-## Using Assets
-
-- Place images in `public/assets/` (e.g., `listing-images/`, `detail-images/`).
-- Reference with `<img src="/assets/listing-images/List 1.png" />` or with `next/image`.
-
-## Verification Checklist
-
-- [ ] Dev server runs without errors (`npm run dev`)
-- [ ] Linting passes (`npm run lint`)
-- [ ] TypeScript check passes (`npm run typecheck`)
-- [ ] Tailwind styles applied correctly
-- [ ] Static assets accessible under `/assets/...`
+![Next.js](https://img.shields.io/badge/Next.js-16-blue?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-v4-blue?logo=tailwindcss)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)
 
 ---
 
-## 👥 Author
+## 🚀 Live Deployment
 
-🕺🏻**Gabriel Okundaye**
+- Hosted on Vercel: [https://alxlisting-00.gabcares.xyz](https://alxlisting-00.gabcares.xyz)
 
-- GitHub: [GitHub Profile](https://github.com/D0nG4667)
 
-- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/dr-gabriel-okundaye)
 
-## ⭐️ Show your support
+---
 
-If you like this project kindly show some love, give it a 🌟 **STAR** 🌟. Thank you!
+## 📦 Tech Stack
+
+| Tool           | Version     | Purpose                                 |
+|----------------|-------------|-----------------------------------------|
+| Node.js        | v24+        | Runtime                                 |
+| Next.js        | v16 (Pages) | React framework with SSR & routing      |
+| TypeScript     | 5.x         | Static typing and DX                    |
+| Tailwind CSS   | v4+         | Utility-first styling                   |
+| ESLint         | Latest      | Code linting and quality enforcement    |
+
+> 💡 Recommended: VS Code with Tailwind IntelliSense + TypeScript extensions
+
+---
+
+## 🧱 Folder Structure
+
+```folder
+└── 📁alx-listing-app-00
+    ├── 📁components
+    │   ├── 📁common
+    │   │   ├── Button.tsx
+    │   │   ├── Card.tsx
+    │   │   ├── CardGrid.tsx
+    │   │   ├── DiscountBadge.tsx
+    │   │   ├── FilterMenu.tsx
+    │   │   ├── Icon.tsx
+    │   │   ├── Pill.tsx
+    │   │   ├── SortMenu.tsx
+    │   ├── 📁layout
+    │   │   ├── Footer.tsx
+    │   │   ├── Header.tsx
+    │   │   ├── Layout.tsx
+    │   │   └── 📁sections
+    │   │       ├── FilterSection.tsx
+    │   │       ├── HeroSection.tsx
+    │   │       ├── MadeWithLove.tsx
+    │   │       ├── MainHeader.tsx
+    │   │       ├── Navigation.tsx
+    │   │       ├── PromotionBanner.tsx
+    │   └── .gitkeep
+    ├── 📁constants
+    │   ├── IconName.ts
+    │   ├── index.ts
+    │   └── .gitkeep
+    ├── 📁hooks
+    │   └── useInfiniteScrollObserver.ts
+    ├── 📁interfaces
+    │   ├── index.ts
+    │   └── .gitkeep
+    ├── 📁pages
+    │   ├── 📁api
+    │   │   └── hello.ts
+    │   ├── _app.tsx
+    │   ├── _document.tsx
+    │   └── index.tsx
+    ├── 📁public
+    │   └── 📁assets
+    │       ├── 📁detail-images
+    │       ├── 📁listing-images
+    │       ├── 📁svg
+    │       │   ├── 📁icons
+    │       │   ├── 📁logos
+    │       │   ├── alx-white.svg
+    │       │   ├── alx.svg
+    │       ├── hero-section-image.png
+    │       ├── icons.svg
+    │       ├── sprite.svg
+    │       ├── sprites.svg
+    │   ├── favicon.ico
+    │   ├── site.webmanifest
+    ├── 📁styles
+    │   └── globals.css
+    ├── .gitignore
+    ├── .prettierignore
+    ├── .prettierrc.json
+    ├── build-sprite.ts
+    ├── eslint.config.mjs
+    ├── LICENSE
+    ├── next-env.d.ts
+    ├── next.config.ts
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.mjs
+    ├── README.md
+    ├── tailwind.config.ts
+    └── tsconfig.json
+```
+
+---
+
+## ⚙️ Getting Started
+
+```bash
+git clone https://github.com/D0nG4667/alx-listing-app-00.git
+cd alx-listing-app-00
+npm install
+npm run dev
+```
+
+Visit `http://localhost:3000` to view the app.
+
+---
+
+## ✅ Verification Checklist
+
+- [x] Dev server runs without errors
+- [x] Linting and type-checking pass
+- [x] Tailwind styles render correctly
+- [x] Responsive layout verified across breakpoints
+- [x] Static assets load from `/assets/...`
+- [x] Layout components (`Header`, `Footer`, `Layout`) render consistently across pages
+- [x] Hero section displays background image and headline text correctly
+- [x] Filter pills render dynamically and respond to user interaction
+- [x] Property cards render with correct data from `PROPERTYLISTINGSAMPLE`
+- [x] Infinite scroll loads additional cards using Intersection Observer
+- [x] Fade-in animation triggers correctly on new card render
+- [x] “Show more” button replaced with “No more listings” when exhausted
+- [x] TypeScript interfaces (`PropertyProps`, etc.) enforce prop safety across components
+- [x] Tailwind animation (`fade-in`) configured and applied via `tailwind.config.ts`
+- [x] Layout integrated globally via `_app.tsx`
+- [x] Project structure matches modular, scalable architecture
+- [x] Deployed successfully to Vercel at `alxlisting-00.gabcares.xyz`
+
+---
+
+## 📖 Changelog
+
+### Milestone 00 — Responsive Listing Page
+
+- ✅ Created layout components: `Header`, `Footer`, `Layout`
+- ✅ Defined `PropertyProps` interface and sample data
+- ✅ Implemented hero section, filters, and listing grid
+- ✅ Integrated Tailwind animations and infinite scroll
+- ✅ Deployed to Vercel at `alxlisting-00.gabcares.xyz`
+
+---
+
+## 🧾 NPM Scripts
+
+This project includes a curated set of scripts to streamline development, enforce code quality, and automate asset generation. Each script is designed for clarity, speed, and operational consistency.
+
+```json
+"scripts": {
+  "dev": "next dev",
+  "build": "ts-node build-sprite.ts && next build",
+  "start": "next start",
+  "lint": "eslint",
+  "format": "prettier --write .",
+  "format:check": "prettier --check .",
+  "sprite": "ts-node build-sprite.ts",
+  "sprite:watch": "concurrently -k -n SPRITE -c cyan \"ts-node build-sprite.ts --watch\""
+}
+```
+
+### 🔧 Script Descriptions
+
+| Script           | Purpose |
+|------------------|---------|
+| **`dev`**         | Launches the Next.js development server with hot reloading at `localhost:3000`. |
+| **`build`**       | Runs the `build-sprite.ts` script to generate the SVG sprite sheet, then compiles the Next.js app for production. |
+| **`start`**       | Starts the optimized production build using `next start`. |
+| **`lint`**        | Runs ESLint across the codebase to enforce code quality and catch potential issues. |
+| **`format`**      | Formats all files using Prettier based on `.prettierrc.json` rules. |
+| **`format:check`**| Checks for formatting issues without modifying files — useful for CI pipelines. |
+| **`sprite`**      | Manually triggers the SVG sprite generation script (`build-sprite.ts`) using `ts-node`. |
+| **`sprite:watch`**| Watches for changes in SVG assets and regenerates the sprite sheet in real time using `concurrently` with colored logging. |
+
+> 💡 The `build-sprite.ts` script is a custom utility that consolidates individual SVG icons into a single sprite sheet (`sprite.svg`) for optimized inline usage. This ensures minimal HTTP requests and consistent icon rendering across the app.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to change.
+
+### Recommended Workflow
+
+```bash
+git checkout -b feature/my-feature
+npm run lint && npm run typecheck
+git commit -m "feat: add my-feature"
+git push origin feature/my-feature
+```
+
+---
+
+## 👤 Author
+
+**Gabriel Okundaye**  
+
+- GitHub: [@D0nG4667](https://github.com/D0nG4667)  
+- LinkedIn: [Dr. Gabriel Okundaye](https://www.linkedin.com/in/dr-gabriel-okundaye)
+
+---
+
+## 🌟 Show Your Support
+
+If this project inspires or helps you, consider giving it a ⭐️. Your support fuels future iterations and open-source contributions.
